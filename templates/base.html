@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+      <a class="logout-brand" href="/logout">Sign Out</a><br>
+    {% block heading %}
+        {% block username %}
+            {% firstof request.session.username " " %}
+        {% endblock %}
+        <title>
+        {% block title %}
+        {% endblock %}
+        </title>
+    {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,147 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<title>Branch Change Form</title>
+<!-- Bootstap CSS -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- Input Validation Java Script -->
+<script src = "inputvalidation.js"></script>
+<script src= "dynamicadd.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css"> </script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js" > </script>
+</head>
+<body>
+
+<nav class = "navbar navbar-default" role = "navigation">
+   
+   <div class = "navbar-header">
+      <button type = "button" class = "navbar-toggle" 
+         data-toggle = "collapse" data-target = "#example-navbar-collapse">
+         <span class = "sr-only">Toggle navigation</span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+      </button>
+		
+      <a class = "navbar-brand" href = "#">Branch Change 2015</a>
+   </div>
+   
+   <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
+	
+      <ul class = "nav navbar-nav">
+         <!--<li><a href = "#">iOS</a></li>
+         <li><a href = "#">SVN</a></li>
+			
+         <li class = "dropdown">
+            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+               Java 
+               <b class = "caret"></b>
+            </a>
+            
+            <ul class = "dropdown-menu">
+               <li><a href = "#">jmeter</a></li>
+               <li><a href = "#">EJB</a></li>
+               <li><a href = "#">Jasper Report</a></li>
+               
+               <li class = "divnameer"></li>
+               <li><a href = "#">Separated link</a></li>
+               
+               <li class = "divider"></li>
+               <li><a href = "#">One more separated link</a></li>
+               
+            </ul>
+
+            
+         </li> -->
+			
+      </ul>
+   </div>
+   
+</nav>
+
+<!-- Form -->
+ <form class="form-horizontal" method = "post" id = "bchangeform" role = "form" action="/input/">
+{% csrf_token %}
+  <div class="form-group" >
+	<label class="control-label col-sm-4 col-md-4 col-xs-4" for="rollno">Roll No:</label>
+    <div class="col-sm-4 col-md-4 col-xs-4">
+      <input type="text" class="form-control" name="rollno" placeholder="15XXXXXXX Roll No." >
+    </div>
+  </div>
+
+  <div class="form-group" >
+    <label class="control-label col-sm-4 col-md-4 col-xs-4" for="name">Name:</label>
+    <div class="col-sm-4 col-md-4 col-xs-4">
+      <input type="text" class="form-control" name="name" placeholder="Enter Name" >
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-4 col-md-4 col-xs-4" for="pbranch">Present Branch:</label>
+    <div class="col-sm-4 col-md-4 col-xs-4 selectContainer">
+      <select class="form-control" name="pbranch" >
+        <option value="">None</option>
+	    <option value= "AE B.Tech">AE B.Tech</option>
+		<option value="CE B.Tech">CE B.Tech</option>
+		<option value="CH">CH</option>
+		<option value="CL B.Tech">CL B.Tech</option>
+		<option value="CL Dual Deg">CL Dual Deg</option>
+		<option value = "CS B.Tech">CS B.Tech</option>
+		<option value = "EE B.Tech">EE B.Tech</option>
+		<option value="EE Dual Deg E1">EE Dual Deg E1</option>
+		<option value = "EE Dual Deg E2">EE Dual Deg E2</option>
+		<option value= "EN Dual Deg">EN Dual Deg</option>
+		<option value = "EP B.Tech">EP B.Tech</option>
+		<option value = "EP Dual Deg N1">EP Dual Deg N1</option>
+		<option value = "ME B.Tech">ME B.Tech</option>
+		<option value = "ME Dual Deg M2">ME Dual Deg M2</option>
+		<option value = "MM B.Tech">MM B.Tech</option>
+		<option value = "MM Dual Deg Y1">MM Dual Deg Y1</option>
+		<option value = "MM Dual Deg Y2">MM Dual Deg Y2</option>
+	</select>
+	</div>
+  </div>
+
+   <div class="form-group">
+    <label class="control-label col-sm-4 col-md-4 col-xs-4" for="cpi">CPI
+    </label>
+    <div class="col-sm-4 col-md-4 col-xs-4">
+      <input type="text" class="form-control" name="cpi" placeholder="CPI: [0:10]" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4 col-md-4 col-xs-4" for="cat">Category
+    </label>
+    <div class="col-sm-4 col-md-4 col-xs-4">
+      <select class="form-control" name="cat">
+   	    <option value = "GE">General</option>
+	    <option value = "OB">OBC</option>
+	    <option value = "SC">SC</option>
+	    <option value ="ST">ST</option>
+  	  </select>
+    </div>
+  </div>
+<div class = "wrap" >
+  <div class="form-group">
+    <label class="control-label col-sm-4 col-md-4 col-xs-4" for="pref1">Preference 1
+    </label>
+    <div class="col-sm-4 col-md-4 col-xs-4">
+      <input type="text" class="form-control" name="pref1" placeholder="" id = "pref1" >
+    </div>
+  </div>
+ </div>
+
+  <!-- Submit Button -->
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-4 col-md-4 col-xs-4">
+      <button class="btn btn-success btn-md" type = "submit">Submit</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>
