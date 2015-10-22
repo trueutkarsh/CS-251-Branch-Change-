@@ -10,8 +10,8 @@ import os
 
 #ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_DEMAND)
 #ldap.set_option(ldap.OPT_X_TLS_CACERTFILE, CACERTFILE)
-servers = ['ldap://1.ldap.iitb.ac.in', 'ldap://2.ldap.iitb.ac.in', 'ldap://3.ldap.iitb.ac.in', 'ldap://4.ldap.iitb.ac.in']
-
+#servers = ['ldap://1.ldap.iitb.ac.in', 'ldap://2.ldap.iitb.ac.in', 'ldap://3.ldap.iitb.ac.in', 'ldap://4.ldap.iitb.ac.in']
+servers=['ldap://ldap.iitb.ac.in']
 
 def getConnection():
     for server in servers:
@@ -33,7 +33,9 @@ def ldapAuth(request, username, password):
     conn = getConnection()
     if conn is None:
         return 'NO_CONNECTION'
-    result = conn.search_s('dc=cse,dc=iitb,dc=ac,dc=in', ldap.SCOPE_SUBTREE, 'uid=%s' % username, ['uid','employeeNumber', 'cn'])
+    #result = conn.search_s('dc=cse,dc=iitb,dc=ac,dc=in', ldap.SCOPE_SUBTREE, 'uid=%s' % username, ['uid','employeeNumber', 'cn'])
+    result = conn.search_s('dc=iitb,dc=ac,dc=in', ldap.SCOPE_SUBTREE, 'uid=%s' % username, ['uid','employeeNumber', 'cn'])
+
     if (len(result) < 1):
         return 'FAILED'
     bind_dn = result[0][0]
